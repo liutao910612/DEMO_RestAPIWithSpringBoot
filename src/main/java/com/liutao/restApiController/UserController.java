@@ -2,6 +2,7 @@ package com.liutao.restApiController;
 
 import com.liutao.domain.Book;
 import com.liutao.domain.Error;
+import com.liutao.domain.Result;
 import com.liutao.domain.User;
 import com.liutao.exception.UserNotFoundException;
 import com.liutao.service.UserService;
@@ -165,5 +166,14 @@ public class UserController {
     @RequestMapping(value="/getBook",method = RequestMethod.GET)
     public Book getBook(){
         return  new Book("read and black","liutao");
+    }
+
+    @RequestMapping(value="/getResult",method = RequestMethod.POST,consumes = "application/json")
+    public @ResponseBody Result getResult(@RequestBody User user){
+        List<String> data = new ArrayList<>();
+        data.add("2017040601");
+        data.add("2017040602");
+        data.add("2017040603");
+        return new Result("999","上传成功",data);
     }
 }

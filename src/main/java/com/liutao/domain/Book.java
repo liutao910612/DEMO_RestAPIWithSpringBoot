@@ -7,8 +7,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 /**
  * Created by liutao on 2017/3/26.
  */
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-@JacksonXmlRootElement(localName = "book")
+//@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+//@JacksonXmlRootElement(localName = "book")
 public class Book {
     private String bookName;
     private String ownPerson;

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.liutao.userTest.UserTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.244 sec - in com.liutao.userTest.UserTest
