@@ -170,10 +170,10 @@ public class UserController {
 
     @RequestMapping(value="/getResult",method = RequestMethod.POST,consumes = "application/json")
     public @ResponseBody Result getResult(@RequestBody User user){
-        List<String> data = new ArrayList<>();
-        data.add("2017040601");
-        data.add("2017040602");
-        data.add("2017040603");
-        return new Result("999","上传成功",data);
+        List<String> temps = new ArrayList<>();
+        temps.add("2017040601");
+        temps.add("2017040602");
+        temps.add("2017040603");
+        return new Result("999","上传成功",temps);
     }
 }

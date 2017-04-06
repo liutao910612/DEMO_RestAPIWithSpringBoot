@@ -118,26 +118,14 @@ public class RestClient {
          * <T> ResponseEntity<T> exchange(String var1, HttpMethod var2, HttpEntity<?> var3, Class<T> var4, Object... var5)
          * throws RestClientException;
          */
-//        ResponseEntity<User> responseEntity = restTemplate.exchange("http://localhost:8888/liutao/v1/getUser/{name}",HttpMethod.GET,null,User.class,"zhangfei");
-//        System.out.println(responseEntity.getBody().toString());
-
         MultiValueMap<String,String> headers = new LinkedMultiValueMap<String,String>();
         headers.add("Accept","application/json");
         headers.add("Content-Type","application/json");
 
-        List<String> data = new ArrayList<>();
-        data.add("2017040601");
-        data.add("2017040602");
-        data.add("2017040603");
-//        List messageConverters=new ArrayList();
-//        messageConverters.add(new SourceHttpMessageConverter());
-//        messageConverters.add(new FormHttpMessageConverter());
-//        messageConverters.add(new MappingJacksonHttpMessageConverter());
-//        restTemplate.setMessageConverters(messageConverters);
         HttpEntity<User> requestEntity = new HttpEntity(new User("dasf",12,"liutao123"),headers);
         ResponseEntity<Result> responseEntity = restTemplate.exchange("http://localhost:8888/liutao/v1/getResult",
                 HttpMethod.POST,requestEntity,Result.class);
-        System.out.println(responseEntity.getBody());
+        System.out.println(responseEntity.getBody().getData());
     }
 
 
