@@ -3,8 +3,10 @@ package com.liutao.userTest;
 import com.liutao.application.Application;
 import com.liutao.domain.Result;
 import com.liutao.domain.User;
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+//import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -26,7 +28,7 @@ import java.util.Map;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-public class RestClient {
+public class RestClient extends TestCase {
 
     @Test
     public void testGetForObject(){
