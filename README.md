@@ -1,1 +1,1 @@
-SpringBootRESTAPI主要用于演示如何使用SpringBoot编写API，其中包含了创建API与调用API。<br/>包含了枚举类与对象转成json格式时自动转下划线格式的用法。
+演示如何使用SpringBoot编写RestFul API，其中包含了创建API与调用API。<br/>包含了枚举类与对象转成json格式时自动转下划线格式的用法。
