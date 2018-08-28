@@ -37,4 +37,14 @@ public class RestfulDataResponse<T> extends RestfulResponse {
     public void setData(T data) {
         this.data = data;
     }
+
+
+    @Override
+    public String toString() {
+        return "RestfulDataResponse{" +
+                "data=" + data +
+                ", code=" + code +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }
