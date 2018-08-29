@@ -54,27 +54,15 @@ public class GetClient extends BaseClient {
         paramMap.put("age",22);
         ResponseEntity<RestfulDataResponse> responseEntity = restTemplate.getForEntity(url+"?name={name}&age={age}",RestfulDataResponse.class,paramMap);
         disposeResponseEntity(responseEntity);
-
-
     }
 
-    private void disposeResponseEntity(ResponseEntity<RestfulDataResponse> responseEntity) {
-        //获取响应状态code
-        HttpStatus httpStatus = responseEntity.getStatusCode();
-        logger.debug("httpstatus code:"+httpStatus.value());
 
-        //获取响应体
-        RestfulDataResponse restfulDataResponse = responseEntity.getBody();
-        logger.debug("restfulDataResponse:"+restfulDataResponse);
-    }
 
     @Test
     public void testGetFoEntity_two(){
         String url = HOST +"/api-demo/user";
         Object[] arr = new Object[]{"rose", 22};
         ResponseEntity<RestfulDataResponse> responseEntity = restTemplate.getForEntity(url+"?name={name}&age={age}",RestfulDataResponse.class,arr);
-
-        //获取响应状态code
         disposeResponseEntity(responseEntity);
     }
 
@@ -90,7 +78,20 @@ public class GetClient extends BaseClient {
         }
         ResponseEntity<RestfulDataResponse> responseEntity = restTemplate.getForEntity(uri,RestfulDataResponse.class);
 
-        //获取响应状态code
         disposeResponseEntity(responseEntity);
+    }
+
+    /**
+     * 处理响应responseEntity
+     * @param responseEntity
+     */
+    private void disposeResponseEntity(ResponseEntity<RestfulDataResponse> responseEntity) {
+        //获取响应状态code
+        HttpStatus httpStatus = responseEntity.getStatusCode();
+        logger.debug("httpstatus code:"+httpStatus.value());
+
+        //获取响应体
+        RestfulDataResponse restfulDataResponse = responseEntity.getBody();
+        logger.debug("restfulDataResponse:"+restfulDataResponse);
     }
 }

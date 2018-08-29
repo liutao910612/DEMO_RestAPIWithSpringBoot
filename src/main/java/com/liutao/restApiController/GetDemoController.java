@@ -22,9 +22,9 @@ import java.util.List;
 @RestController
 @Api(value = "API of user")
 @RequestMapping("/api-demo/")
-public class UserController {
+public class GetDemoController {
 
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+    private Logger logger = LoggerFactory.getLogger(GetDemoController.class);
 
     /**
      * 获取多个用户信息
@@ -52,44 +52,4 @@ public class UserController {
         User user = new User(name,age,"123");
         return ResponseBuilder.buildOkDataResponse(user);
     }
-
-    /**
-     * 添加用户信息
-     * @param user
-     * @return
-     */
-    @PostMapping("user")
-    public RestfulResponse addUser(@RequestBody User user){
-        logger.debug("user:"+user);
-        return ResponseBuilder.buildOkResponse();
-    }
-
-    /**
-     * 修改用户信息（传入被修改对象的全部）
-     * @param user
-     * @return
-     */
-    @PutMapping("user")
-    public RestfulResponse updateUser(@RequestBody User user){
-        logger.debug("user:"+user);
-        return ResponseBuilder.buildOkResponse();
-    }
-
-    /**
-     * 修改用户名（传入被修改对象的部分信息）
-     * @param id
-     * @param username
-     * @return
-     */
-    @PatchMapping("user/{id}")
-    public RestfulResponse updateUserName(
-            @PathVariable("id")String id,
-            @RequestParam("username") String username
-    ){
-        logger.debug("id:"+id);
-        logger.debug("username:"+username);
-        return ResponseBuilder.buildOkResponse();
-    }
-
-
 }
