@@ -1,16 +1,16 @@
-###1 概述
+### 1 概述
 针对目前项目中使用的前后端分离开发，越来越感觉到API设计的重要性，而不好的API设计通常让使用者通过URL无法明确知道这个URL到底是干什么用的，并且会显得设计混乱，在此将使用Restful风格设计API进行总结，并对在SpringBoot中具体实现Restful API的设计给出一定示例。
-###2 Restful API设计
+### 2 Restful API设计
 使用Restful API是一种面向资源的设计风格，因此我们每一个URL对应的都是一个资源。从而针对资源的操作我们就可以使用HTTP的相应的请求方式来进行体现。
-####2.1 版本
+#### 2.1 版本
 应该将API的版本号放入URL中，例如http://localhost:8080/v1/。
-####2.2 URL定义为名词
+#### 2.2 URL定义为名词
 在之前我们通常看见/addUser、/editUser这样的URL定义，那么如果我们使用这样的定义就相当于我们放弃了HTTP请求方式（GET,POST,PUT,PATCH,DELETE）等的表达作用。并且我们也知道Restful提倡面向资源的URL路径，所以URL使用名词来进行定义。<br/>
 例如：<br/>
 1. 操作用户资源：http://localhost:8080/v1/user，
 2. 操作多个用户资源：http://localhost:8080/v1/users，
 3. 操作财务部下的用户资源：http://localhost:8080/v1/accounting-department/user，从这里我们可以学到一点，针对某个资源需要两个单词来进行表达的时候我们可以使用“-”将两个单词连接起来。
-####2.3 使用HTTP请求方法来表达对资源的操作
+#### 2.3 使用HTTP请求方法来表达对资源的操作
 上面我们知道了Restful API的URL定义是面向资源的，也就是每一个URL表示的是一种资源，那我我们要表达对资源的相关操作怎么办呢？而且Restful风格也强调了URL必须为名词构成。这里我们就可以使用HTTP的请求方式来表达对资源的操作了。<br/>
 * GET：获取资源。
 * POST:创建资源。
