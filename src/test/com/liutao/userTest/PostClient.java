@@ -26,16 +26,27 @@ public class PostClient extends BaseClient {
     private Logger logger = LoggerFactory.getLogger(PostClient.class);
 
 
+    /**
+     * 演示 public <T> T postForObject(String url, @Nullable Object request, Class<T> responseType, Object... uriVariables)的使用
+     * 最后一个参数 uriVariables的使用和 public <T> T getForObject(String url, Class<T> responseType, Object... uriVariables)相同，
+     * 可以不传，url跟有参数则需要添加。
+     *
+     */
     @Test
-    public void testPostForObject(){
-        System.out.println("enter testPostForObject");
-        RestTemplate restTemplate = new RestTemplate();
+    public void testPostForObject_one(){
+        String url = HOST +"/api-demo/json/user?dept={dept}";
+        Object[] arr = new Object[]{"finance"};
+        int result = restTemplate.postForObject(url,new User("liutao",12,"liutao123"),int.class,arr);
+        logger.debug("user:"+result);
+    }
 
-        /**
-         * 注意这里可以在最后面加上地址参数，可以是一个可变参数，也可以是一个Map
-         */
-        User user = restTemplate.postForObject("http://localhost:8888/liutao/v1/create",new User("liutao",12,"liutao123"),User.class);
-        System.out.println("user:"+user);
+
+    @Test
+    public void testPostForObject_two(){
+        String url = HOST +"/api-demo/json/user?dept={dept}";
+        Object[] arr = new Object[]{"finance"};
+        int result = restTemplate.postForObject(url,new User("liutao",12,"liutao123"),int.class,arr);
+        logger.debug("user:"+result);
     }
 
     @Test
@@ -46,8 +57,8 @@ public class PostClient extends BaseClient {
         /**
          * 注意这里可以在最后面加上地址参数，可以是一个可变参数，也可以是一个Map
          */
-        ResponseEntity<User> responseEntity = restTemplate.postForEntity("http://localhost:8888/liutao/v1/create",new User("liutao",12,"liutao123"),User.class);
-        System.out.println("user:"+((User)responseEntity.getBody()).toString());
+        ResponseEntity<Integer> responseEntity = restTemplate.postForEntity("http://localhost:8888/liutao/v1/create",new User("liutao",12,"liutao123"),Integer.class);
+        System.out.println("user:"+ responseEntity.getBody().toString());
         System.out.println("status:"+responseEntity.getStatusCode());
         System.out.println("message:"+responseEntity.getStatusCodeValue());
     }
