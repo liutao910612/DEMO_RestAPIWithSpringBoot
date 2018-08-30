@@ -52,15 +52,4 @@ public class PostClient extends BaseClient {
         System.out.println("message:"+responseEntity.getStatusCodeValue());
     }
 
-    @Test
-    public void testDelete(){
-        System.out.println("enter testPostForEntity");
-        RestTemplate restTemplate = new RestTemplate();
-
-        /**
-         * 注意这里可以在最后面加上地址参数，可以是一个可变参数，也可以是一个Map
-         */
-        restTemplate.delete("http://localhost:8888/liutao/v1/delete/liutao");
-    }
-
 }
