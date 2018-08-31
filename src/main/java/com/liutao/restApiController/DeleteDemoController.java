@@ -30,11 +30,11 @@ public class DeleteDemoController {
      * @return
      */
     @DeleteMapping("user")
-    public RestfulResponse getUser(
+    public int getUser(
             @RequestParam(value = "name",defaultValue = "liutao")String name,
             @RequestParam("age") int age) {
         logger.debug("name:"+name+",age:"+age);
-        return ResponseBuilder.buildOkResponse();
+        return 1;
     }
 
 }

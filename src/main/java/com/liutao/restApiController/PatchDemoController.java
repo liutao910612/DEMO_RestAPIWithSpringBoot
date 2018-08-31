@@ -24,17 +24,16 @@ public class PatchDemoController {
     /**
      * 修改用户名（传入被修改对象的部分信息）
      * @param id
-     * @param username
+     * @param name
      * @return
      */
     @PatchMapping("user/{id}")
-    public RestfulResponse updateUserName(
+    public int updateUserName(
             @PathVariable("id")String id,
-            @RequestParam("username") String username
+            @RequestParam("name") String name
     ){
-        logger.debug("id:"+id);
-        logger.debug("username:"+username);
-        return ResponseBuilder.buildOkResponse();
+        logger.debug("id:"+id+",name:"+name);
+        return 1;
     }
 
 

@@ -46,7 +46,7 @@ public class PostDemoController {
      * @param user
      * @return
      */
-    @PostMapping(value = "/form/user",consumes = "application/x-www-form-urlencoded")
+    @PostMapping("/form/user")
     public int addUserByForm(@ModelAttribute User user){
         logger.debug("user:"+user);
         return 1;

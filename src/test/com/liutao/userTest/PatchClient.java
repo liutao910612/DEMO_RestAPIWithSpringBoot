@@ -11,7 +11,7 @@ import org.junit.Test;
  * @Modified By:
  */
 
-public class PutClient extends BaseClient {
+public class PatchClient extends BaseClient {
 
     /**
      * 演示 public void put(String url, @Nullable Object request, Object... uriVariables)的使用，如果url中没有参数，

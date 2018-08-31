@@ -31,8 +31,8 @@ public class PutDemoController {
      * @return
      */
     @PutMapping("user")
-    public RestfulResponse updateUser(@RequestBody User user){
+    public int updateUser(@RequestBody User user){
         logger.debug("user:"+user);
-        return ResponseBuilder.buildOkResponse();
+        return 1;
     }
 }
