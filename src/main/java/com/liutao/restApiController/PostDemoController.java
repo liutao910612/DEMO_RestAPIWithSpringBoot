@@ -23,7 +23,6 @@ public class PostDemoController {
 
     private Logger logger = LoggerFactory.getLogger(PostDemoController.class);
 
-
     /**
      * 添加用户信息
      * 请求参数支持json

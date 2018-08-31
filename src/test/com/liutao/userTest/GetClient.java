@@ -18,7 +18,6 @@ import java.util.Map;
  * @Date: Created in 2018/8/14  14:54
  * @Modified By:
  */
-
 public class GetClient extends BaseClient {
     private Logger logger = LoggerFactory.getLogger(GetClient.class);
 
