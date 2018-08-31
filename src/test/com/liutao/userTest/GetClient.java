@@ -4,16 +4,12 @@ import com.liutao.model.User;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * 模拟rest请求客户端
@@ -27,7 +23,12 @@ public class GetClient extends BaseClient {
     private Logger logger = LoggerFactory.getLogger(GetClient.class);
 
     /**
-     * 演示 public <T> T getForObject(String url, Class<T> responseType, Map<String, ?> uriVariables) 方法的使用
+     * 演示方法： public <T> T getForObject(String url, Class<T> responseType, Map<String, ?> uriVariables)
+     *           throws RestClientException
+     * 参数意义：
+     * url：url地址
+     * responseType：响应实体类型。
+     * uriVariables：url地址参数，如果没有url参数的时候直接传空Map(new HashMap())。
      */
     @Test
     public void testGetForObject_one(){
@@ -41,7 +42,12 @@ public class GetClient extends BaseClient {
 
 
     /**
-     * 演示 public <T> T getForObject(String url, Class<T> responseType, Object... uriVariables)方法的使用
+     * 演示方法：public <T> T getForObject(String url, Class<T> responseType, Object... uriVariables)
+     *          throws RestClientException
+     * 参数意义：
+     * url：url地址
+     * responseType：响应实体类型。
+     * uriVariables：url地址参数，如果url地址上没有参数的，这个参数可以不填。
      */
     @Test
     public void testGetForObject_two(){
@@ -56,7 +62,10 @@ public class GetClient extends BaseClient {
     }
 
     /**
-     * 演示 public <T> ResponseEntity<T> getForEntity(String url, Class<T> responseType, Map<String, ?> uriVariables)方法的使用
+     * 演示方法： public <T> ResponseEntity<T> getForEntity(String url, Class<T> responseType, Map<String, ?> uriVariables)
+     *           throws RestClientException
+     * 此方法与 public <T> T getForObject(String url, Class<T> responseType, Map<String, ?> uriVariables) throws
+     * RestClientException方法的使用相同，不同的是这个方法的返回结果为ResponseEntity，可以从返回结果获取响应状态及响应体等信息。
      */
     @Test
     public void testGetFoEntity_one(){
@@ -70,7 +79,10 @@ public class GetClient extends BaseClient {
 
 
     /**
-     * 演示 public <T> ResponseEntity<T> getForEntity(String url, Class<T> responseType, Object... uriVariables)方法的使用
+     * 演示方法：public <T> ResponseEntity<T> getForEntity(String url, Class<T> responseType, Object... uriVariables)
+     *          throws RestClientException
+     * 此方法与 public <T> T getForObject(String url, Class<T> responseType, Object... uriVariables) throws
+     * RestClientException方法的使用相同，不同的是这个方法的返回结果为ResponseEntity，可以从返回结果获取响应状态及响应体等信息。
      */
     @Test
     public void testGetFoEntity_two(){
@@ -81,7 +93,11 @@ public class GetClient extends BaseClient {
     }
 
     /**
-     * 演示 public <T> ResponseEntity<T> getForEntity(URI url, Class<T> responseType)方法的使用
+     * 演示方法：public <T> ResponseEntity<T> getForEntity(URI url, Class<T> responseType)
+     *          throws RestClientException
+     * 参数意义：
+     * url：url为URI对象URI uri = new URI("http://localhost:8080/api/demo?name=zhangsan")，如果有url参数需要拼接在地址后面。
+     * responseType：响应实体类型。
      */
     @Test
     public void testGetFoEntity_three(){
@@ -116,24 +132,5 @@ public class GetClient extends BaseClient {
         //获取响应体
         User user = responseEntity.getBody();
         logger.debug("user:"+user);
-    }
-
-    /**
-     * 演示将token放置再请求头中传递至后台进行验证
-     *
-     * 通过exchange方法提交get请求，并在参数中通过指定requestHeaders来设置请求头参数
-     */
-    @Test
-    public void howToSendToken(){
-        String url = HOST +"/api-demo/finance/user?name={name}";
-        Map<String,Object> paramMap = new HashMap<>();
-        paramMap.put("name","rose");
-        //设置请求头数据
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.set("token",UUID.randomUUID().toString());
-        HttpEntity<String> requestEntity = new HttpEntity<>(null, requestHeaders);
-        ResponseEntity<User> responseEntity = restTemplate.exchange(url,
-                HttpMethod.GET,requestEntity,User.class,paramMap);
-        logger.debug(responseEntity.getBody().toString());
     }
 }
