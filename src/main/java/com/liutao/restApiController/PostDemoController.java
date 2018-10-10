@@ -42,6 +42,10 @@ public class PostDemoController {
     /**
      * 添加用户信息
      * 请求参数支持表单数据
+     *
+     * 注意：针对ModelAttribute注解，后面只能够跟具体的类，不能是Map，
+     * 并且类必须有默认的构造器
+     *
      * @param user
      * @return
      */
