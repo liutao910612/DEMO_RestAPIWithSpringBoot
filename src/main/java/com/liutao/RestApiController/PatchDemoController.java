@@ -1,7 +1,5 @@
-package com.liutao.restApiController;
+package com.liutao.RestApiController;
 
-import com.liutao.util.ResponseBuilder;
-import com.liutao.util.RestfulResponse;
 import com.wordnik.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

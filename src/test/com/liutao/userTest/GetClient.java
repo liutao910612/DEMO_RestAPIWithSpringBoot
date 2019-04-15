@@ -31,11 +31,11 @@ public class GetClient extends BaseClient {
      */
     @Test
     public void testGetForObject_one(){
-        String url = HOST +"/api-demo/user";
+        String url = "https://api.sdk.tjhaoran.cn/Oauth/Pack/detail?pack_key=0&os=android&client_id=7cfedd98e7a60c12&version=4.0.2";
         Map<String,Object> paramMap = new HashMap<>();
         paramMap.put("name","rose");
         paramMap.put("age",22);
-        User user = restTemplate.getForObject(url+"?name={name}&age={age}",User.class,paramMap);
+        Object user = restTemplate.getForObject(url+"?name={name}&age={age}",Object.class,paramMap);
         logger.debug("user:"+user);
     }
 

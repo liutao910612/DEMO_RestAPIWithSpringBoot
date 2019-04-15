@@ -1,4 +1,4 @@
-package com.liutao.restApiController;
+package com.liutao.RestApiController;
 
 import com.liutao.enums.SelfHttpStatus;
 import com.liutao.model.User;
